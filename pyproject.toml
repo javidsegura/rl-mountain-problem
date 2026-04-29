@@ -1,7 +1,32 @@
 [project]
-name = "group-project"
+name = "mountaincar-rl"
 version = "0.1.0"
-description = "Add your description here"
+description = "MountainCar RL testbed — Tinder for RL (RLI 22.00)"
 readme = "README.md"
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "gymnasium[classic-control]>=1.0.0",
+    "stable-baselines3>=2.4.0",
+    "torch>=2.5.0",
+    "tensorboard>=2.18.0",
+    "matplotlib>=3.9.0",
+    "seaborn>=0.13.0",
+    "scikit-learn>=1.5.0",
+    "numpy>=1.26.0",
+    "pandas>=2.2.0",
+    "tqdm>=4.66.0",
+    "jupyterlab>=4.3.0",
+    "ipykernel>=6.29.0",
+    "ipywidgets>=8.1.0",
+    "rich>=13.9.0",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/mountaincar_rl"]
+
+[tool.uv]
+package = true

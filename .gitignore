@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# venv / uv
+.venv/
+.python-version.lock
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Artifacts (large; results JSONs are kept, the rest is regenerable)
+artifacts/tb_logs/
+artifacts/checkpoints/
+artifacts/figures/
+# Keep artifacts/results/ for the cache that ships in the zip
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Submission outputs
+*.zip
+!docs/instructions/**/*.zip
