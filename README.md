@@ -1,12 +1,16 @@
 # MountainCar RL — Tinder for RL (RLI 22.00)
 
-> A modular RL testbed comparing 5 algorithms (Q-learning, SARSA, DQN, PPO, SAC) across 4 MountainCar scenarios, with reward shaping, multi-seed statistical evaluation, policy interpretability, and physical (Forced Harmonic Oscillator) analysis.
+> A modular RL testbed comparing 5 algorithms (Q-learning, SARSA, DQN, PPO, SAC) across 4 MountainCar scenarios, with reward shaping, multi-seed statistical evaluation, policy interpretability, and a physics-based (Forced Harmonic Oscillator) framing.
+
+[![DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/javidsegura/rl-mountain-problem)
+
+> Full system documentation: [DeepWiki — Overview](https://deepwiki.com/javidsegura/rl-mountain-problem)
 
 ---
 
 ## What it is
 
-The MountainCar problem (Moore, 1990) cast as a testbed: an under-powered car must learn to leverage potential energy by oscillating to escape a valley. We treat it as a Forced Harmonic Oscillator and analyze how 5 RL algorithms — 2 tabular + 3 deep — discover qualitatively different policies under 4 reward / action-space variations.
+The MountainCar problem (Moore, 1990) cast as a testbed: an under-powered car must learn to leverage potential energy by oscillating to escape a valley. We frame it as a Forced Harmonic Oscillator (one natural period ≈ 72 env-steps, against a 200-step episode horizon) and analyze how 5 RL algorithms — 2 tabular + 3 deep — discover qualitatively different policies under 4 reward / action-space variations.
 
 The deliverable is a single Jupyter notebook ([docs/deliverables/task1/mountaincar_analysis.ipynb](docs/deliverables/task1/mountaincar_analysis.ipynb)) that imports all logic from a `src/mountaincar_rl/` package, narrates the analysis paper-style, and renders cached results in ~30 seconds.
 
@@ -125,7 +129,11 @@ make notebook         # opens JupyterLab on the deliverable
 # In the notebook: Run All. Default MODE="cache" renders cached results in ~30 sec.
 ```
 
-Alternative (no `uv` installed): the first cell of the notebook does `!pip install -r requirements.txt` and works in any Python 3.13 venv.
+Alternative (no `uv` installed): in any Python 3.13 venv, run
+`pip install -r requirements.txt` from the project root, then open the
+notebook. (The notebook also contains an `INSTALL_DEPS` flag at the top
+that performs the same install when set to `True` — set it once if you'd
+rather install from inside JupyterLab.)
 
 ### Verifying the training loop (optional, for graders)
 
@@ -170,9 +178,14 @@ Final submission file: `RLI_22_00 - Group XX.zip`. Built via `GROUP=XX make zip`
 
 ## Team
 
-| Name | Role |
-|---|---|
-| _TBD_ | _TBD_ |
+- Juan Alonso-Allende Zabala
+- Alp Arslan Baghirov
+- Jad Chebly
+- Javier Domínguez Segura
+- Alejandro Helmrich Laura
+- Luis Andrés Infante Núñez
+- Nikoloz Kipiani
+- Diego Oliveros Rabago
 
 ---
 

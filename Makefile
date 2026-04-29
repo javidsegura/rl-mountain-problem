@@ -12,7 +12,7 @@ lock:           ## Refresh uv.lock without installing
 	uv lock
 
 requirements:   ## Export pinned requirements.txt from uv.lock (for the notebook's !pip install path)
-	uv export --no-hashes --format requirements-txt --no-dev > requirements.txt
+	uv export --no-hashes --format requirements-txt --no-dev 2>/dev/null | grep -v '^-e \.$$' > requirements.txt
 
 smoke:          ## ~2 min: train each algo briefly to verify no crashes
 	uv run python scripts/smoke.py

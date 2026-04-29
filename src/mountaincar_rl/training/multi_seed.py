@@ -61,7 +61,7 @@ DEFAULT_SHAPING = {
     "q_learning": "none",
     "sarsa":      "none",
     "dqn":        "potential",
-    "ppo":        "none",
+    "ppo":        "potential",
     "sac":        "potential",
 }
 
