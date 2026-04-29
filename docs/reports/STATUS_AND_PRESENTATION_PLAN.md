@@ -14,6 +14,24 @@ The only thing left is **the presentation deck** (Part 03), and that's what this
 
 ---
 
+## How submission works (one paragraph)
+
+The submission is **one zip file** named exactly `RLI_22_00 - Group 6.zip`, containing the full working directory (the `src/` package, the notebook, `requirements.txt`, the cached `artifacts/results/` + `artifacts/figures/`, README, Makefile). It is **already built and sitting at the project root** — produced by running `GROUP=6 make zip`. Only **one** team member uploads to Blackboard. The presentation deck (PDF or PPTX) goes alongside it as a separate file per the prof's instructions (PDF p13).
+
+To rebuild the zip after any changes: `cd` into the project root and run `GROUP=6 make zip`. It overwrites the previous zip.
+
+---
+
+## Why PPO "fails" on discrete MountainCar — short FAQ for graders' likely question
+
+We expect the prof to ask: *"why doesn't PPO solve discrete MountainCar?"* The answer (used in slides 8 and 11):
+
+PPO is **on-policy** — each training batch is collected fresh by the current policy and discarded after one gradient update. MountainCar has sparse rewards (−1/step until the goal). With our 30k-timestep budget, if PPO's batches never contain a goal-reaching trajectory, the policy gradient never learns goal-reaching exists. DQN avoids this with a **replay buffer**: once one lucky goal-reach happens, that transition gets replayed many times and propagates through the Q-function.
+
+This is **the headline finding** of Part 01, not a flaw to hide. It's exactly the kind of "comparative analysis" the rubric (PDF p8) values.
+
+---
+
 ## 2 · How to deliver the deck
 
 - **Length:** 21 slides total, ≈ 18 min of speaking time. Prof allows 15-20 min.
@@ -98,4 +116,7 @@ For each slide: *what it says* + *what image to use* + *speaker notes (≈30 sec
 - [ ] Open the deck in presenter mode and time it. Target 18 min.
 - [ ] Each member rehearses their slides at least once — being able to answer questions on adjacent slides matters too.
 - [ ] During Q&A: have the notebook open in a tab. If the prof asks about a number, you can show the cell.
-- [ ] On submission day: only **one** group member uploads. The submission file is `RLI_22_00 - Group 6.zip` (already built, in project root). The deck (PDF or PPTX) goes alongside it per prof instructions.
+- [ ] On submission day: only **one** group member uploads two files to Blackboard:
+      1. `RLI_22_00 - Group 6.zip` (already built, sitting at the project root — this is the working directory zipped, contains everything: src/, notebook, requirements.txt, cached artifacts, README, Makefile).
+      2. The presentation deck as PDF or PPTX, named however you want (the prof doesn't specify).
+      If you change anything between now and then, rebuild the zip with `GROUP=6 make zip`.
